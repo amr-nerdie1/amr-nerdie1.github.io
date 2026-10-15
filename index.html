@@ -101,7 +101,7 @@ dialog::backdrop{background:rgba(11,31,58,.55)}
 .timeline b{color:var(--navy)}
 .timeline span{display:block;color:var(--muted);font-size:14px}
 .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.how{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
 .how .panel h3{margin:0 0 6px;font-size:17px;color:var(--navy)}
 .how .panel p{margin:0;color:var(--muted);font-size:14.5px}
 
@@ -186,6 +186,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
       <div class="panel"><h3>Get the number right first</h3><p>Every figure ties back to a source system and can be reproduced. Caveats are stated up front rather than found later. I prefer transparent, deterministic models that leadership can challenge line by line.</p></div>
       <div class="panel"><h3>Prototype, prove, then ask</h3><p>I build a working version on historical data, quantify the value, then make small, specific asks of engineering or IT. That gets AI work into production without long programs.</p></div>
       <div class="panel"><h3>Ship in tests with stopping rules</h3><p>Bounded experiments, staged rollouts and rollback gates. Decide in advance what result means stop, so we learn quickly and limit downside.</p></div>
+      <div class="panel"><h3>LLMs narrate, code calculates</h3><p>In every agent I ship, numbers and decisions come from deterministic tools. Guardrails check each figure and claim before anyone sees it, untrusted text can't give instructions, and "not enough data" is an allowed answer. Prompts are published and the guardrails are red-teamed.</p></div>
     </div>
   </div>
 </section>
@@ -312,7 +313,7 @@ const CASES = [
   role:"Product owner and builder end to end; aligned methodology with the analytics director before the leadership readout.",
   tools:"Claude Code, Anthropic SDK, Python, SQL Server, Excel"
 },
-{ id:"freight", co:"Cymax", title:"Freight auditor agent", tags:["AI","Analytics","PM"],
+{ id:"freight", co:"Cymax", title:"Freight auditor agent", tags:["AI","Analytics","PM"], code:"https://github.com/amr-nerdie1/ltl-freight-auditor",
   one:"Reconciles LTL carrier bills against quotes charge by charge, then an agent searches the ops inboxes for evidence and assigns fault: vendor, carrier or internal.",
   metrics:[{v:"1,000+",l:"Flagged overbilled orders per year in scope"},{v:"Hours → seconds",l:"Per-order reconciliation"},{v:"10 × 3",l:"Fault reasons × fault parties"}],
   problem:"Carriers bill differently than they quote: reweighs, beyond-area fees, surcharges, unquoted accessorials. Each carrier sends a different format, and charges hide in multi-invoice EDI. Auditing by hand across thousands of LTL orders didn't scale, so recoverable money was missed.",
@@ -332,7 +333,7 @@ const CASES = [
   tools:"React, Node.js, Claude Agent SDK, Microsoft 365 / Graph, SQL Server, EDI",
   note:"Recovered dollars weren't yet totalled when this was written; the tool was moving from pilot to weekly production."
 },
-{ id:"niche", co:"Cymax", title:"Niche growth strategy: category gap mapping", tags:["Analytics"],
+{ id:"niche", co:"Cymax", title:"Category growth agent: where to grow next", tags:["AI","Analytics"], code:"https://github.com/amr-nerdie1/category-growth-agent",
   one:"Mapped Amazon's category tree against a ~130K-product catalogue to find where the business had no presence but the market had room. It fed the Prime Day hero picks.",
   metrics:[{v:"7",l:"Amazon category subtrees"},{v:"~130K",l:"Catalogue products joined"},{v:"1,333",l:"Demand niches scored"}],
   problem:"Keyword research only finds niches you already know to look for. The business needed a structural view of where it was missing from Amazon.",
@@ -340,14 +341,15 @@ const CASES = [
     "Used Keepa's Amazon US category tree as the backbone across seven subtrees, from furniture to kitchen and office.",
     "Extracted node-level market structure (154 furniture nodes alone): product and seller counts, average price, ratings, FBA share, Amazon's own share and top brands.",
     "Joined back to the catalogue through reverse ASIN lookup to show coverage and gaps node by node, with a plain-English reason for each ranked gap.",
-    "Scored 1,333 Amazon Market Demand niches against catalogue economics to pick Prime Day hero categories."
+    "Scored 1,333 Amazon Market Demand niches against catalogue economics to pick Prime Day hero categories.",
+    "Rebuilt it as an LLM agent that answers \"where should we grow?\" with a cited memo. Code scores every category; the model only narrates. Guardrails check every number, category and citation, fence untrusted marketplace text against prompt injection, and make the agent abstain when data is thin. Red-teamed with 13 injected hallucinations: all 13 caught."
   ],
   results:[
     "Selected four hero niches for Prime Big Deal Days (wall beds, breakfast nooks, L-shaped desks, filing cabinets) and flagged sourcing gaps such as fireproof filing cabinets, where demand was emerging but the catalogue had no SKUs.",
     "A structural, repeatable gap map that complements the keyword pipeline instead of duplicating it."
   ],
   role:"Designed the approach and built the extraction and scoring.",
-  tools:"Keepa, Python, Excel"
+  tools:"Keepa, Python, Excel, Claude tool use (agent rebuild)"
 },
 { id:"pl", co:"Cymax", title:"Private label strategy engine", tags:["Analytics","PM"],
   one:"A repeatable keyword-to-niche pipeline and classifier that tells private label which niches are emerging, saturated or oversaturated.",
@@ -424,7 +426,7 @@ const CASES = [
   role:"Senior PM; owned discovery, vendor negotiation, experiment design and go-to-market.",
   tools:"A/B testing, Hotjar, third-party AR, product analytics"
 },
-{ id:"checkout", co:"BuildDirect", title:"Cart and checkout revamp (CRO)", tags:["PM","Analytics"],
+{ id:"checkout", co:"BuildDirect", title:"Cart and checkout revamp (CRO)", tags:["PM","Analytics"], code:"https://github.com/amr-nerdie1/checkout-cro",
   one:"Rebuilt checkout around how people actually buy building materials: one-click sample checkout, guest-first check-in, address autocomplete and review, and delivery dates customers choose. Revenue +15%.",
   metrics:[{v:"+15%",l:"Revenue growth"},{v:"3M+",l:"Monthly users, phased rollout"},{v:"1-click",l:"Sample checkout (was full checkout)"}],
   problem:"Growth had to come from existing traffic because acquisition costs were high, and checkout is where intent is highest. But one heavyweight checkout served two very different purchases. A free sample ran through the same flow as a $3–4K flooring order, including live calls to the shipping-rate services. First-time shoppers hit an account wall. Delivery dates were fixed, though LTL freight needs someone home to receive it. And wrong addresses on freight orders meant failed deliveries, redelivery fees and returns.",
@@ -522,6 +524,7 @@ groupsEl.addEventListener('click',e=>{
     <h4>Results</h4><ul>${c.results.map(a=>`<li>${a}</li>`).join('')}</ul>
     <h4>My role</h4><p>${c.role}</p>
     <h4>Tools</h4><p>${c.tools}</p>
+    ${c.id==='checkout'?`<h4>Live demo</h4><p><a href="https://amr-nerdie1.github.io/checkout-cro/" target="_blank" rel="noopener">Try the Before / After checkout prototype</a> (fictional store)</p>`:''}
     ${c.code?`<h4>Code</h4><p><a href="${c.code}" target="_blank" rel="noopener">${c.code.replace('https://','')}</a> · reference build on synthetic data, with tests${c.id==='pro'?' and the full PRD':''}</p>`:''}
     ${c.note?`<p class="note">${c.note}</p>`:''}`;
   dlg.showModal();
