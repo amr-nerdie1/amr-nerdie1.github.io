@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amrisha Rajkhowa · Product & Analytics</title>
+<meta name="description" content="Product and analytics leader building AI agents, pricing systems and marketplace economics for large-item e-commerce.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A; --navy-2:#13294B; --teal:#0E8C8C; --teal-2:#14B8A6; --teal-soft:#E6F4F3;
+  --ink:#16202E; --muted:#5A6778; --line:#E3E8EF; --bg:#F7F9FB; --card:#FFFFFF;
+  --amber:#B45309; --amber-soft:#FEF3C7;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.96);backdrop-filter:saturate(1.4) blur(6px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .brand{color:#fff;font-weight:700;letter-spacing:.2px;text-decoration:none}
+nav .brand span{color:var(--teal-2)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{color:#C9D5E4;text-decoration:none;font-size:14px;font-weight:500}
+nav ul a:hover{color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,#0F3A4A 100%);color:#fff;padding:72px 0 64px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--teal-2);margin-bottom:14px}
+.hero h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 18px;font-weight:700;max-width:820px}
+.hero p.lede{font-size:clamp(16px,2vw,19px);color:#D3DEEA;max-width:720px;margin:0 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--teal-2);color:var(--navy)}
+.btn-ghost{border-color:#3B5677;color:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.stat{border:1px solid #2A4466;border-radius:12px;padding:16px 18px;background:rgba(255,255,255,.03)}
+.stat b{display:block;font-size:26px;font-family:"Source Serif 4",Georgia,serif;color:#fff}
+.stat span{font-size:13px;color:#AFC0D3}
+
+/* Sections */
+section{padding:64px 0;scroll-margin-top:60px}
+h2{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(26px,3.4vw,34px);margin:0 0 10px;color:var(--navy)}
+.sub{color:var(--muted);margin:0 0 28px;max-width:720px}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip:focus-visible,.card:focus-visible,.btn:focus-visible{outline:3px solid var(--teal-2);outline-offset:2px}
+.group-label{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+.group-label:after{content:"";flex:1;height:1px;background:var(--line)}
+.group-label small{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s;text-align:left;font:inherit;color:inherit}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,31,58,.08);border-color:#CBD5E1}
+.card .co{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+.card h3{margin:0;font-size:18px;line-height:1.3;color:var(--navy)}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.metrics{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.metric{background:var(--teal-soft);color:#0B5E5E;border-radius:8px;padding:6px 10px;font-size:13px;line-height:1.25}
+.metric b{display:block;font-size:16px;color:#064B4B}
+.metric.todo{background:var(--amber-soft);color:var(--amber)}
+.metric.todo b{color:var(--amber)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:6px;background:#EEF2F7;color:#334155}
+.more{font-size:14px;font-weight:600;color:var(--teal)}
+
+/* Dialog */
+dialog{border:none;border-radius:16px;padding:0;max-width:820px;width:calc(100% - 32px);max-height:88vh;box-shadow:0 30px 80px rgba(2,12,27,.35)}
+dialog::backdrop{background:rgba(11,31,58,.55)}
+.dlg-head{background:var(--navy);color:#fff;padding:26px 28px 22px;position:sticky;top:0}
+.dlg-head .co{color:var(--teal-2);font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase}
+.dlg-head h3{font-family:"Source Serif 4",Georgia,serif;font-size:26px;margin:6px 0 0;line-height:1.2}
+.close{position:absolute;top:16px;right:16px;background:transparent;border:1px solid #3B5677;color:#fff;border-radius:8px;width:36px;height:36px;font-size:20px;cursor:pointer}
+.dlg-body{padding:24px 28px 30px;overflow:auto}
+.dlg-body h4{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin:22px 0 8px}
+.dlg-body h4:first-child{margin-top:0}
+.dlg-body p,.dlg-body li{font-size:15.5px}
+.dlg-body ul{padding-left:20px;margin:0}
+.dlg-body li{margin:6px 0}
+.dlg-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 6px}
+.dlg-metrics .metric{padding:12px}
+.dlg-metrics .metric b{font-size:22px;font-family:"Source Serif 4",Georgia,serif}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin-top:18px}
+
+/* About */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:36px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{padding:12px 0;border-bottom:1px solid var(--line)}
+.timeline li:last-child{border-bottom:none}
+.timeline b{color:var(--navy)}
+.timeline span{display:block;color:var(--muted);font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.how .panel h3{margin:0 0 6px;font-size:17px;color:var(--navy)}
+.how .panel p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* Contact */
+.contact{background:var(--navy);color:#fff;border-radius:18px;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.contact h2{color:#fff}
+.contact p{color:#C9D5E4;margin:0}
+footer{padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about,.how{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  nav ul{display:none}
+  .grid{grid-template-columns:1fr}
+  .hero{padding:52px 0 44px}
+  section{padding:48px 0}
+  .dlg-head{padding:22px 56px 18px 20px}
+  .dlg-body{padding:20px}
+  .contact{padding:28px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Amrisha <span>Rajkhowa</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#how">How I work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Product · Analytics · AI</span>
+    <h1>I turn messy marketplace economics into products and AI agents that make money.</h1>
+    <p class="lede">Senior product and analytics leader in large-item e-commerce. Seven years running product teams at BuildDirect, then building AI agents, pricing models and decision systems hands-on at Cymax across Amazon and Walmart.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="https://github.com/amr-nerdie1" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b>7+ yrs</b><span>Product management</span></div>
+      <div class="stat" role="listitem"><b>13</b><span>Case studies, problem to result</span></div>
+      <div class="stat" role="listitem"><b>4</b><span>AI agents and decision engines built hands-on</span></div>
+      <div class="stat" role="listitem"><b>MBA</b><span>UBC · B.Tech Mech. Eng. · Duke AI/ML PM</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="sub">Each case covers the problem, what I did, and what changed. Filter by the kind of role you're hiring for. Click any card for the full story.</p>
+    <div class="filters" role="group" aria-label="Filter case studies">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="PM" aria-pressed="false">Product management</button>
+      <button class="chip" data-f="Analytics" aria-pressed="false">Analytics & data science</button>
+      <button class="chip" data-f="AI" aria-pressed="false">AI & agents</button>
+      <button class="chip" data-f="Technical" aria-pressed="false">Technical / platform</button>
+    </div>
+    <div id="groups"></div>
+  </div>
+</section>
+
+<section id="how" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h2>How I work</h2>
+    <p class="sub">The same habits show up in every case study above.</p>
+    <div class="how">
+      <div class="panel"><h3>Get the number right first</h3><p>Every figure ties back to a source system and can be reproduced. Caveats are stated up front rather than found later. I prefer transparent, deterministic models that leadership can challenge line by line.</p></div>
+      <div class="panel"><h3>Prototype, prove, then ask</h3><p>I build a working version on historical data, quantify the value, then make small, specific asks of engineering or IT. That gets AI work into production without long programs.</p></div>
+      <div class="panel"><h3>Ship in tests with stopping rules</h3><p>Bounded experiments, staged rollouts and rollback gates. Decide in advance what result means stop, so we learn quickly and limit downside.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About</h2>
+      <p>I started as a mechanical engineer, moved into business analysis, then into product management at BuildDirect. There I led B2C and B2B products for an online building materials marketplace: replatforming, pricing, Pro self-serve, search ranking and fraud.</p>
+      <p>At Cymax, a large-item furniture marketplace selling mainly on Amazon and Walmart, I lead analytics and AI. I build things myself: SQL pipelines, Bayesian bid models, Claude-based agents and decision trees that operations and leadership use every week.</p>
+      <p>I'm looking for a senior product role in AI, analytics, pricing or marketplace platforms, where deep data work and product ownership sit together.</p>
+      <h4 style="color:var(--teal);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:24px 0 6px">Toolkit</h4>
+      <div class="skills">
+        <span class="tag">SQL Server</span><span class="tag">Python</span><span class="tag">Claude Code & Agent SDK</span><span class="tag">LLM-as-judge evaluation</span><span class="tag">Bayesian modelling</span><span class="tag">A/B testing</span><span class="tag">Amazon & Walmart Ads</span><span class="tag">Helium 10 · Keepa</span><span class="tag">React</span><span class="tag">AWS (Lambda, DynamoDB)</span><span class="tag">GraphQL / OpenAPI</span><span class="tag">Excel modelling</span>
+      </div>
+    </div>
+    <div class="panel">
+      <ul class="timeline">
+        <li><b>Senior Analytics & AI Lead</b><span>Cymax Group Technologies · Mar 2025 – present</span></li>
+        <li><b>Senior Product Manager</b><span>BuildDirect Technologies · Mar 2018 – Mar 2025</span></li>
+        <li><b>MBA</b><span>University of British Columbia</span></li>
+        <li><b>AI/ML Product Management</b><span>Duke University, 2024</span></li>
+        <li><b>B.Tech, Mechanical Engineering</b><span>National Institute of Technology, India</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Open to senior product and analytics leadership roles in Canada, the US and remote.</p>
+      </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:amrisha2023@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://ca.linkedin.com/in/amrisha-rajkhowa-ubc" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Amrisha Rajkhowa. Figures are approximate and shared with care; company-confidential data has been generalised.</div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-head">
+    <div class="co" id="dlg-co"></div>
+    <h3 id="dlg-title"></h3>
+    <button class="close" id="dlg-close" aria-label="Close">×</button>
+  </div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+
+<script>
+/* ===== Case study content: edit here ===== */
+/* metric {v,l,todo:true} shows as an amber "to add" chip. Remove todo once filled. */
+const CASES = [
+/* ---------- Cymax ---------- */
+{ id:"ads", co:"Cymax", title:"Ad spend priced to SKU economics", tags:["Analytics","PM"], code:"https://github.com/amr-nerdie1/bayesian-bid-pricing",
+  one:"Showed that ad bids were flat while SKU value varied 16x. Built a Bayesian bid-pricing model for 32K SKUs, then used it to pick Prime Day hero products on Amazon and Walmart.",
+  metrics:[{v:"~$456K",l:"Contribution per quarter, modelled, same budget"},{v:"16x vs <3x",l:"Value spread vs bid spread"},{v:"5–14x",l:"Early Prime Day ROAS"}],
+  problem:"Leadership asked whether we were bidding too low. The data showed a different problem: what a click is worth varied 16x across the advertised catalogue, but what we paid varied less than 3x. Every SKU got about $0.25 a click whether a sale contributed $17 or $333, and bids had essentially no correlation with SKU value (Spearman +0.12).",
+  approach:[
+    "Joined 90 days of Amazon ad data (134K rows) to warehouse economics for all 32,444 advertised SKUs. Spend matched the warehouse within 0.34%.",
+    "Priced every click: MaxCPC = Bayesian CVR × contribution per unit. Beta-binomial shrinkage toward the category rate lets every SKU be scored without a minimum-order cutoff, which would have excluded every growth candidate by design.",
+    "Left out halo sales because their incrementality was unmeasured, and calculated the breakeven incrementality (38%) so the open question was stated, not glossed over.",
+    "Gave every SKU one verdict (bid up, bid down, hold or stop below the practical $0.20 floor) and built a constant-budget reallocation waterfall.",
+    "Designed a bounded test raising 416 proven SKUs to their max affordable bid, to measure click elasticity before scaling.",
+    "Walmart: corrected internal ROAS reporting (actual 6.97x), screened 899 products into margin-gated tiers (Tier 1 returning $3.54 contribution per ad dollar), and asked for a small test with a stopping rule from day one.",
+    "Prime Day: built an Ad Priority score (margin, ROAS, sales, stock, niche momentum) to choose hero niches such as wall beds, breakfast nooks, L-shaped desks and filing cabinets."
+  ],
+  results:[
+    "About $456K contribution per quarter identified at the same budget (modelled).",
+    "Early Prime Big Deal Days results: scaled products 5.1x ROAS on Day 1, test products 13.9x, event ad sales at 7.9x.",
+    "Caught in real time that new campaigns under-delivered because starting bids were too low. That is the flat-bid problem the model predicted, and it strengthened the case for value-based bidding.",
+    "Found that 71% of emerging-niche SKUs could profitably advertise, against 31% catalogue-wide, which links ad strategy to assortment strategy."
+  ],
+  role:"Sole analyst and author of the model, test designs and recommendations; partnered with the marketing team on execution.",
+  tools:"SQL Server, Python, Excel, Amazon Ads, Walmart Ads Center",
+  note:"Early results are under a 14-day attribution window. The $456K is a modelled opportunity, not realised savings."
+},
+{ id:"returns", co:"Cymax", title:"Returns, replacements and disposal decision tree", tags:["Analytics","PM"],
+  one:"Analysed 12,832 return requests and built the decision tree for refund vs replace vs credit-to-keep vs returnless. About $537K a year in contribution improvement.",
+  metrics:[{v:"~$537K",l:"Annualised contribution improvement"},{v:"12,832",l:"Return requests analysed"},{v:"$82 vs $201",l:"Net cost: credit-to-keep vs replacement"}],
+  problem:"Returning a sofa or a dining set can cost more than the item. Decisions between refund, replacement, credit-to-keep (C2K), returnless refund and disposal were ad hoc, varied by agent, and nobody could see which path actually cost least.",
+  approach:[
+    "Analysed 12,832 return requests across four disposition paths and built a returnless routing model across 34 vendor groups.",
+    "Designed a C2K credit ladder (20% then 40%) and found off-ladder 15% offers were dragging acceptance down. Target: raise customer acceptance from 45% to 80%, with a 6-hour SLA on damage offers.",
+    "Ran a parallel study of 4,039 replacement requests, producing a four-gate decision tree. Found 916 full replacements that cost more than the original unit, where a 25% credit saves $214–$536 per case.",
+    "Showed full-unit re-ships were 79% of replacement cost but recovered only 38%, while parts were 21% of cost and recovered 75%. Also found double payments (replacement plus credit on the same case) and a status flag that under-reported C2K spend by 55%.",
+    "Reversed the vendor-targeting logic mid-analysis: once full compensation was counted, vendors with no return-to-vendor recovered 119% through allowances, against 63% for vendors who accept returns.",
+    "Delivered SVP-ready Excel, Word and decision-tree artifacts, plus a biweekly scorecard (replacement and return cost, freight, keep-it rate, C2K acceptance)."
+  ],
+  results:[
+    "About $537K annualised contribution improvement identified: returnless routing about $337K, credit-to-keep ladder about $200K.",
+    "Showed credit-to-keep is the cheapest resolution ($82 net per case vs $201 for a replacement) yet used on only 6% of requests. This led to the 40% ladder and the SLA change.",
+    "The framework now governs reverse-logistics spend decisions."
+  ],
+  role:"Lead analyst and framework owner, working with the disputes and customer service leads and presenting to the SVP.",
+  tools:"SQL Server, Excel modelling, decision trees",
+  note:"Savings are modelled annualised figures from the analysis; acceptance-rate gains were being tracked biweekly."
+},
+{ id:"sku", co:"Cymax", title:"SKU profitability agent", tags:["AI","Analytics","PM"], code:"https://github.com/amr-nerdie1/sku-profitability-agent",
+  one:"Turned a 2–3 day manual margin investigation into an unattended Monday run. About 21K SKUs diagnosed against a 49-action matrix, each action given an ID and routed to the owning team as a Jira ticket.",
+  metrics:[{v:"$2.27M",l:"Recoverable margin quantified (framework)"},{v:"~21K",l:"SKUs diagnosed every week"},{v:"2–3 days → 0",l:"Manual analysis per cycle"}],
+  problem:"About 30,000 SKUs sold on Amazon at a 3% average contribution margin, so much of the catalogue barely broke even. Finding why each SKU lost money took 2–3 days of manual work per cycle, gave inconsistent answers, and often sent actions to the wrong team.",
+  approach:[
+    "Built a 13-layer SQL pipeline that condenses about 150K order rows into about 21K SKU diagnoses. Each diagnosis is scored against a 49-action decision matrix with a driver (refund, damage, COGS, freight, marketing), a root cause, an action and an owner.",
+    "Used a RAG architecture that keeps deterministic Python costing separate from LLM reasoning. Claude writes the weekly insights and surfaces emerging patterns, but every figure stays reproducible.",
+    "Treated diagnostic accuracy as the real product problem. Caught return freight contaminating outbound freight economics on thousands of SKUs, and found 'listing fix' misassigned to 90% of buyer-return SKUs. Fixing it rerouted about 140 SKUs to the owners who could act.",
+    "Added confidence tiers based on order volume, a 60-day refund-settlement buffer, and an LLM-as-judge validation tab before anything reaches leadership.",
+    "Used a pricing policy change already in the data as a natural experiment to validate the logic before the leadership readout.",
+    "Gave every action an ID, owner and fixability rating, and routed action groups to the owning teams (pricing, vendor management, logistics, content, marketing) as Jira tickets with the SKU list, dollars at stake and acceptance criteria."
+  ],
+  results:[
+    "Weekly SKU-level profitability insight every Monday, with no manual assembly.",
+    "Extended the Amazon profitability framework that quantified $2.27M in true recoverable margin.",
+    "Actions now go to the right owner as Jira tickets with action IDs, instead of one spreadsheet for everyone."
+  ],
+  role:"Product owner and builder end to end; aligned methodology with the analytics director before the leadership readout.",
+  tools:"Claude Code, Anthropic SDK, Python, SQL Server, Excel"
+},
+{ id:"freight", co:"Cymax", title:"Freight auditor agent", tags:["AI","Analytics","PM"],
+  one:"Reconciles LTL carrier bills against quotes charge by charge, then an agent searches the ops inboxes for evidence and assigns fault: vendor, carrier or internal.",
+  metrics:[{v:"1,000+",l:"Flagged overbilled orders per year in scope"},{v:"Hours → seconds",l:"Per-order reconciliation"},{v:"10 × 3",l:"Fault reasons × fault parties"}],
+  problem:"Carriers bill differently than they quote: reweighs, beyond-area fees, surcharges, unquoted accessorials. Each carrier sends a different format, and charges hide in multi-invoice EDI. Auditing by hand across thousands of LTL orders didn't scale, so recoverable money was missed.",
+  approach:[
+    "Built a reconciliation tool comparing API-quoted rates with EDI-billed charges line by line. It flags any order overbilled by more than $15 in a rolling 1-year window and gives a root cause per charge and a plain-English AI explanation.",
+    "Wrote carrier-specific parsers (key-value, multi-quote JSON, simple JSON). Isolated returns from delivery variance and fixed wrong-quote matching with a 3-pass rule. Started with 3 carriers and expanded to 12.",
+    "Automated the weekly data pull with a scheduled Cowork task, so the freight team just uploads and reviews.",
+    "Built an agentic fault-party workflow on the Claude Agent SDK, self-hosted inside the company network. It reuses the reconciliation code (one source of truth), searches two shared ops mailboxes for evidence, applies written fault rules and packages the case. Credit memos stay a human approval step.",
+    "Piloted on 10 orders with the recoveries team, then made three small, specific IT asks to reach production."
+  ],
+  results:[
+    "Every flagged order reconciled in seconds instead of hours, with an audit trail for carrier disputes.",
+    "First live end-to-end fault run in October 2026: reconciliation, evidence search across two mailboxes, and fault assignment.",
+    "One shared tool always on the latest logic, used by the freight and recoveries team."
+  ],
+  role:"Product owner and builder; defined fault rules with the recoveries manager.",
+  tools:"React, Node.js, Claude Agent SDK, Microsoft 365 / Graph, SQL Server, EDI",
+  note:"Recovered dollars weren't yet totalled when this was written; the tool was moving from pilot to weekly production."
+},
+{ id:"niche", co:"Cymax", title:"Niche growth strategy: category gap mapping", tags:["Analytics"],
+  one:"Mapped Amazon's category tree against a ~130K-product catalogue to find where the business had no presence but the market had room. It fed the Prime Day hero picks.",
+  metrics:[{v:"7",l:"Amazon category subtrees"},{v:"~130K",l:"Catalogue products joined"},{v:"1,333",l:"Demand niches scored"}],
+  problem:"Keyword research only finds niches you already know to look for. The business needed a structural view of where it was missing from Amazon.",
+  approach:[
+    "Used Keepa's Amazon US category tree as the backbone across seven subtrees, from furniture to kitchen and office.",
+    "Extracted node-level market structure (154 furniture nodes alone): product and seller counts, average price, ratings, FBA share, Amazon's own share and top brands.",
+    "Joined back to the catalogue through reverse ASIN lookup to show coverage and gaps node by node, with a plain-English reason for each ranked gap.",
+    "Scored 1,333 Amazon Market Demand niches against catalogue economics to pick Prime Day hero categories."
+  ],
+  results:[
+    "Selected four hero niches for Prime Big Deal Days (wall beds, breakfast nooks, L-shaped desks, filing cabinets) and flagged sourcing gaps such as fireproof filing cabinets, where demand was emerging but the catalogue had no SKUs.",
+    "A structural, repeatable gap map that complements the keyword pipeline instead of duplicating it."
+  ],
+  role:"Designed the approach and built the extraction and scoring.",
+  tools:"Keepa, Python, Excel"
+},
+{ id:"pl", co:"Cymax", title:"Private label strategy engine", tags:["Analytics","PM"],
+  one:"A repeatable keyword-to-niche pipeline and classifier that tells private label which niches are emerging, saturated or oversaturated.",
+  metrics:[{v:"73",l:"Niche concepts scored"},{v:"13",l:"Furniture categories"},{v:"4",l:"Validated entry clusters"}],
+  problem:"Private label needed a consistent, repeatable way to choose niches to enter and SKUs to convert, not one-off research.",
+  approach:[
+    "Built a repeatable pipeline: Helium 10 Black Box to seed, Magnet to expand, Cerebro to validate.",
+    "Classifier labels each niche EMERGING, SATURATED or OVERSATURATED with a score and binary flags. Competitive but high-revenue niches stay on the list with a warning.",
+    "Added content scoring for private label listings across Amazon and Walmart feeds, and an automated brand-assignment and coverage dashboard.",
+    "Cross-checked against internal economics: the bid model and the classifier independently put the same niches (wall beds, filing cabinets) at the top."
+  ],
+  results:[
+    "Gave merchandising validated entry clusters: expandable dining tables, filing cabinets, rotating bookshelves and Spanish-language listings.",
+    "The classifier fed Prime Day hero selection and the ad bid model's test candidates."
+  ],
+  role:"Designed the method and built the pipeline, classifier and dashboard.",
+  tools:"Helium 10, Excel, Python"
+},
+/* ---------- BuildDirect ---------- */
+{ id:"replatform", co:"BuildDirect", title:"Replatform: monolith to headless commerce", tags:["PM","Technical"],
+  one:"Led the move from a legacy monolithic site to a headless architecture with a phased traffic rollout and CI/CD improvements. Deployment errors fell 30%.",
+  metrics:[{v:"−30%",l:"Deployment errors"},{v:"Quarterly → biweekly",l:"Release cadence"},{v:"1% → 100%",l:"Phased rollout, rollback gates"}],
+  problem:"The legacy monolith limited releases to once a quarter, made every deployment risky and blocked scalability. Replatforms often stall or cause revenue dips after launch.",
+  approach:[
+    "Managed cross-functional teams, budget and timeline on an Agile/Waterfall hybrid, with two junior PMs running intake and stakeholder communications.",
+    "Defined OpenAPI contracts for the Cart, Promotions, Content and Identity microservices. Oversaw integration of the GraphQL layer, Auth0 and the ERP/OMS.",
+    "Drove CI/CD pipeline improvements so releases became smaller, more frequent and safer.",
+    "Designed a 1% → 10% → 50% → 100% traffic rollout with rollback gates tied to error and performance thresholds, instrumented with CloudWatch, X-Ray and funnel dashboards.",
+    "At 50% traffic, order failures appeared. I traced them to inconsistent rounding rules between the platform, the ERP and Stripe, triggered by one heavily promoted SKU. Aligned Engineering, Finance and the ERP lead on one rounding standard and shipped the fix within the week."
+  ],
+  results:["Deployment errors −30%.","Releases every two weeks instead of quarterly, with zero-downtime deployments.","Go-live date held despite the payment issue."],
+  role:"Senior PM leading technical execution, team coordination, budget and timeline.",
+  tools:"Headless commerce platform, GraphQL, OpenAPI, Auth0, ERP/OMS, Stripe, CI/CD, AWS CloudWatch, X-Ray"
+},
+{ id:"quotes", co:"BuildDirect", title:"Quotes microservice: build vs extend", tags:["PM","Technical"],
+  one:"Chose to build a standalone quote service rather than force quotes into the OMS. It added $450K revenue in its first quarter.",
+  metrics:[{v:"$450K",l:"Incremental revenue, Q1"},{v:"+37%",l:"Sales cycle efficiency"},{v:"<450ms",l:"Quote-to-order conversion"}],
+  problem:"B2B customers needed quotes that are editable, versioned and can expire. The OMS supported none of that, so sales tracked quotes in spreadsheets disconnected from inventory and pricing.",
+  approach:[
+    "Ran the trade-off with our architect. Extending the OMS meant limited draft support, no versioning and rate limits that could throttle live orders. A standalone service meant more upfront work but full control.",
+    "Chose a decoupled serverless service (Lambda, API Gateway, DynamoDB) that calls the OMS only at conversion, isolating failures from live orders.",
+    "Defined retry and throttling behaviour, including graceful handling of OMS rate-limit errors.",
+    "Kept the sales UX simple: create quote, edit lines, convert to order with real-time validation."
+  ],
+  results:["$450K incremental revenue in the first quarter from quotes that would otherwise have been lost.","Sales cycle efficiency +37%.","Scaled to thousands of concurrent drafts with no impact on live orders; set up later loyalty and shipping features without OMS changes."],
+  role:"Senior PM; owned the decision, MVP definition and stakeholder buy-in.",
+  tools:"AWS Lambda, API Gateway, DynamoDB, Brightpearl"
+},
+{ id:"ranking", co:"BuildDirect", title:"SKU ranking algorithm", tags:["Analytics","PM"],
+  one:"A ranking model for 100K+ SKUs that put in-stock, relevant, low-claims products first. Click-through rose 15%.",
+  metrics:[{v:"+15%",l:"Click-through rate"},{v:"+10%",l:"Conversion"},{v:"−20%",l:"Post-purchase complaints"}],
+  problem:"Search and category pages often showed out-of-stock or low-engagement products first, which lowered relevance and lost revenue.",
+  approach:[
+    "Defined ranking signals with data science: in-stock rate, pageview-to-order, reviews, claims rate and promotions. Set weights through exploratory analysis.",
+    "Combined them into one score that updates with inventory and promotions, with a claims-rate penalty so popular but problem-prone products aren't over-promoted.",
+    "Launched an MVP on two signals, then added complexity in stages with A/B tests at each step.",
+    "Measured the algorithm itself with Precision@K and the out-of-stock share of pageviews, alongside business KPIs."
+  ],
+  results:["CTR +15%, conversion +10%, AOV +5%.","Post-purchase complaints −20%.","Ran across 100K+ SKUs with no performance degradation."],
+  role:"Senior PM; owned problem framing, metrics and rollout with data science and engineering.",
+  tools:"A/B testing, ranking models, product analytics"
+},
+{ id:"ar", co:"BuildDirect", title:"AR room visualizer: samples to orders", tags:["PM","Analytics"],
+  one:"Only 15% of sample buyers went on to order. An AR 'see it in your room' tool plus a go-to-market fix grew revenue 20%.",
+  metrics:[{v:"+20%",l:"Revenue (~$1M/month)"},{v:"+16%",l:"Sample-to-order"},{v:"−40%",l:"Purchase cycle"}],
+  problem:"Acquisition costs were high, so growth had to come from existing traffic. Only 15% of sample buyers placed an order. Research showed DIY customers couldn't picture a whole room from a small sample.",
+  approach:[
+    "Set revenue as the north star, with sample-to-order rate and purchase cycle as input metrics.",
+    "Tested demand cheaply with a 'See it in your room' banner before building anything.",
+    "Chose buy over build, picking a third-party AR provider, and negotiated the first month free to fund a 50/50 A/B test.",
+    "When usage stalled at 5%, fixed go-to-market with Marketing: QR codes and vanity URLs on sample boxes."
+  ],
+  results:["A/B test: sample-to-order +6%, purchase cycle −40%; users converted at 2.5x non-users.","After the go-to-market push: usage 5% → 15%, sample-to-order +16%, AOV +10%.","Revenue +20%, about $1M a month."],
+  role:"Senior PM; owned discovery, vendor negotiation, experiment design and go-to-market.",
+  tools:"A/B testing, Hotjar, third-party AR, product analytics"
+},
+{ id:"checkout", co:"BuildDirect", title:"Cart and checkout revamp (CRO)", tags:["PM","Analytics"],
+  one:"Rebuilt checkout around how people actually buy building materials: one-click sample checkout, guest-first check-in, address autocomplete and review, and delivery dates customers choose. Revenue +15%.",
+  metrics:[{v:"+15%",l:"Revenue growth"},{v:"3M+",l:"Monthly users, phased rollout"},{v:"1-click",l:"Sample checkout (was full checkout)"}],
+  problem:"Growth had to come from existing traffic because acquisition costs were high, and checkout is where intent is highest. But one heavyweight checkout served two very different purchases. A free sample ran through the same flow as a $3–4K flooring order, including live calls to the shipping-rate services. First-time shoppers hit an account wall. Delivery dates were fixed, though LTL freight needs someone home to receive it. And wrong addresses on freight orders meant failed deliveries, redelivery fees and returns.",
+  approach:[
+    "<b>Who is buying, and why.</b> The core buyer was a first-time DIY homeowner, mostly on mobile, making an intimidating high-ticket purchase. They order samples first, and samples are the leading indicator of orders. Pros, by contrast, are repeat buyers who want speed. Personas came from funnel data, session recordings, customer service tickets and sales rep feedback.",
+    "<b>Where it broke.</b> Funnel analysis showed drop-off at account creation and on the sample path, and support data showed address errors driving failed freight deliveries.",
+    "<b>Prioritised by impact and effort</b>, starting with the sample path because it feeds every future order.",
+    "<b>One-click sample checkout.</b> Samples skip the live shipping-rate calls and cost allocation used for freight orders and check out in one step. This also cut load on the rate services.",
+    "<b>Guest-first check-in.</b> Enter an email; if it isn't recognised, continue as a guest and activate the account at the end of checkout. No upfront account wall for first-time buyers.",
+    "<b>Address quality.</b> Added Google address autocomplete (missing before, painful on mobile) plus a review pop-up confirming the shipping address before the order is placed.",
+    "<b>Customer-chosen delivery dates</b> in checkout, so freight arrives when someone is home to receive it.",
+    "Rebuilt payments around third-party processors, with a pilot and phased rollout to 3M+ monthly users and A/B guardrails at each step."
+  ],
+  results:[
+    "Revenue +15% from the redesigned checkout.",
+    "Sample checkout went from a full multi-step flow to one click, feeding more shoppers into the sample-to-order funnel.",
+    "Tracked: checkout completion, sample checkout completion, guest-to-account activation, address-correction and failed-delivery rates, delivery-date selection, with payment failures and fraud rate as guardrails."
+  ],
+  role:"Senior PM; owned discovery, prioritisation, requirements, pilots and rollout.",
+  tools:"Funnel analytics, Hotjar session recordings, A/B testing, Google Places autocomplete, Stripe and third-party payment processors"
+},
+{ id:"pro", co:"BuildDirect", title:"Pro self-serve platform", tags:["PM"], code:"https://github.com/amr-nerdie1/pro-self-serve-platform",
+  one:"Replaced phone quotes and price haggling with self-serve pricing, quoting and repeat ordering for contractors.",
+  metrics:[{v:"+25%",l:"Online Pro sales"},{v:"+18%",l:"Repeat orders"},{v:"+30%",l:"Scheduled deliveries"}],
+  problem:"Pro customers (contractors, builders) still ordered by phone, with manual quotes and price negotiation. That friction capped B2B growth even though the website was capable.",
+  approach:[
+    "Ran discovery with two junior PMs: contextual interviews with Pros and sales reps, a Pro survey and web data. Affinity mapping found three needs: automated quotes, tiered Pro pricing, and easy repeat orders with delivery scheduling.",
+    "Prioritised by impact and effort. Co-designed workflows with UX and architects, including API contracts for quoting and a tiered pricing engine.",
+    "Shipped in three 4-week increments, each adding user value, with designers running quick usability tests every sprint.",
+    "Launched with Sales Enablement and Marketing (demos, guides, rep training) and dashboards for online share, quote-to-order and repeat rate."
+  ],
+  results:["Within six weeks: online Pro sales +25%, repeat orders +18%, scheduled deliveries +30%.","Pro segment revenue +12% year over year.","Both junior PMs went on to lead follow-on work."],
+  role:"Senior PM and people lead for two junior PMs.",
+  tools:"Discovery research, pricing engine design, API-first architecture"
+},
+{ id:"fraud", co:"BuildDirect", title:"Real-time fraud detection without checkout friction", tags:["PM","AI","Analytics"],
+  one:"Executives had approved OTP checks at checkout. I made the case for a tuned ML fraud layer instead: fraud incidents fell 50% with no loss of checkout conversion.",
+  metrics:[{v:"−50%",l:"Fraud incidents"},{v:"0",l:"Loss in checkout conversion"},{v:"$0",l:"New tooling: redundant tool cancelled"}],
+  problem:"Payment fraud was rising. Operations proposed 3D Secure/OTP at checkout, and executives had approved it. I was concerned about cart abandonment in a North American market unused to OTP.",
+  approach:[
+    "Met the Operations Manager to understand his goals before arguing for anything.",
+    "Analysed fraud patterns: billing/shipping name mismatches, large first orders with no prior sample, and unusual names.",
+    "Found that the existing Stripe Radar (ML) rules weren't tuned to these patterns, and that another fraud tool was being paid for but not used.",
+    "Owned the vision, requirements and success criteria for an AI layer that augmented agent decisions during live transactions. Set precision and recall thresholds to keep false positives down without weakening security.",
+    "Coordinated delivery across Engineering, Finance, Legal and Customer Operations, including data custody, access controls and compliance for sensitive payment data. Added automated review alerts and monthly rule tuning."
+  ],
+  results:["Fraud incidents −50%.","No loss of checkout conversion, because there was no OTP step for legitimate customers.","Cancelled the redundant fraud tool."],
+  role:"Senior PM; owned the product vision, requirements and success criteria, and led stakeholder alignment.",
+  tools:"Stripe Radar (ML), precision/recall thresholds, fraud pattern analysis"
+}
+];
+
+/* ===== Rendering ===== */
+const groupsEl = document.getElementById('groups');
+const GROUPS = [
+  {co:"Cymax", label:"Cymax Group Technologies", note:"Analytics & AI lead · hands-on builder"},
+  {co:"BuildDirect", label:"BuildDirect Technologies", note:"Senior Product Manager · team lead"}
+];
+function esc(s){return s}
+function metricHTML(m){return `<div class="metric${m.todo?' todo':''}"><b>${m.v}</b>${m.l}</div>`}
+function render(filter){
+  groupsEl.innerHTML = GROUPS.map(g=>{
+    const items = CASES.filter(c=>c.co===g.co && (filter==='all' || c.tags.includes(filter)));
+    if(!items.length) return '';
+    return `<div class="group-label">${g.label} <small>${g.note}</small></div>
+    <div class="grid">${items.map(c=>`
+      <button class="card" data-id="${c.id}" aria-haspopup="dialog">
+        <div class="co">${c.co}</div>
+        <h3>${c.title}</h3>
+        <p>${c.one}</p>
+        <div class="tags">${c.tags.map(t=>`<span class="tag">${t==='PM'?'Product':t}</span>`).join('')}</div>
+        <div class="metrics">${c.metrics.map(metricHTML).join('')}</div>
+        <span class="more">Read the case →${c.code?' &nbsp;·&nbsp; Code on GitHub':''}</span>
+      </button>`).join('')}</div>`;
+  }).join('');
+}
+render('all');
+
+document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');
+  render(b.dataset.f);
+}));
+
+const dlg = document.getElementById('dlg');
+groupsEl.addEventListener('click',e=>{
+  const card = e.target.closest('.card'); if(!card) return;
+  const c = CASES.find(x=>x.id===card.dataset.id);
+  document.getElementById('dlg-co').textContent = c.co + ' · ' + c.tags.map(t=>t==='PM'?'Product':t).join(' · ');
+  document.getElementById('dlg-title').textContent = c.title;
+  document.getElementById('dlg-body').innerHTML = `
+    <div class="dlg-metrics">${c.metrics.map(metricHTML).join('')}</div>
+    <h4>The problem</h4><p>${c.problem}</p>
+    <h4>What I did</h4><ul>${c.approach.map(a=>`<li>${a}</li>`).join('')}</ul>
+    <h4>Results</h4><ul>${c.results.map(a=>`<li>${a}</li>`).join('')}</ul>
+    <h4>My role</h4><p>${c.role}</p>
+    <h4>Tools</h4><p>${c.tools}</p>
+    ${c.code?`<h4>Code</h4><p><a href="${c.code}" target="_blank" rel="noopener">${c.code.replace('https://','')}</a> · reference build on synthetic data, with tests${c.id==='pro'?' and the full PRD':''}</p>`:''}
+    ${c.note?`<p class="note">${c.note}</p>`:''}`;
+  dlg.showModal();
+  history.replaceState(null,'','#'+c.id);
+});
+document.getElementById('dlg-close').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+dlg.addEventListener('close',()=>history.replaceState(null,'',location.pathname));
+/* deep link: index.html#ads opens that case */
+window.addEventListener('load',()=>{
+  const id = location.hash.slice(1);
+  const el = id && document.querySelector(`.card[data-id="${id}"]`);
+  if(el) el.click();
+});
+</script>
+<style>.todo-inline{background:var(--amber-soft);color:var(--amber);padding:2px 6px;border-radius:4px;font-size:14px}</style>
+</body>
+</html>
